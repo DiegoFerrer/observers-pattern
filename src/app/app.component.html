@@ -1,0 +1,31 @@
+<header class="header">
+  <section class="news">
+    <h1 style="font-size: 14px">OBSERVABLE NOTICIAS</h1>
+    <section class="buttons">
+      <button (click)="emitEconomia()">noticia Economia</button>
+      <button (click)="emitDeportes()">noticia Deportes</button>
+    </section>
+
+  </section>
+  <select 
+    class="language"
+    [(ngModel)]="selected" 
+    name="status" 
+    placeholder="select" 
+    (ngModelChange)="onOptionsSelected()"
+    [ngModelOptions]="{standalone: true}"
+    >
+    <option *ngFor="let sta of status" [ngValue]="sta">{{sta}}</option>
+  </select>
+</header>
+<section class="container">
+  <aside class="aside">
+    <button class="button" routerLink="/home">Home</button>
+    <button class="button" routerLink="/admin">Admin</button>
+  </aside>
+
+  <section class="body">
+    <router-outlet></router-outlet>
+  </section>
+  
+</section>
